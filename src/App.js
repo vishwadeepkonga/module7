@@ -1,23 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './component/Navbar/Navbar';
+import Header from './component/Header/Header'
+import Products from './component/Products/Products';
+import Footer from './Footer/Footer';
+import { CounterContext } from './component/CounterContext'
+import React from 'react';
+
+
 
 function App() {
+  const [counter, setCounter] = React.useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+            <CounterContext.Provider value={{counter, setCounter}}>
+
+    <Navbar/>
+    <Header/>
+    <Products/>
+    </CounterContext.Provider>
+
+    <Footer/>
+
     </div>
   );
 }
